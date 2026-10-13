@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markaz Reseller Web Store</title>
+    <style>
+        :root { --primary-color: #5D3EBC; --text-dark: #2D2D2D; --bg-light: #F7F7FA; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; padding: 0; background-color: var(--bg-light); color: var(--text-dark); }
+        header { background-color: white; border-bottom: 1px solid #EAEAEA; padding: 12px 20px; position: sticky; top: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .logo { font-size: 22px; font-weight: bold; color: var(--primary-color); }
+        .search-bar { flex: 1; max-width: 500px; margin: 0 20px; }
+        .search-bar input { width: 100%; padding: 10px 15px; border: 1px solid #D1D1D6; border-radius: 20px; background-color: #F2F2F7; outline: none; box-sizing: border-box; }
+        .banner { background: linear-gradient(135deg, #5D3EBC, #7A56E2); color: white; margin: 20px auto; max-width: 1200px; padding: 30px; border-radius: 12px; text-align: center; box-sizing: border-box; }
+        .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; max-width: 1200px; margin: 0 auto; padding: 0 20px 50px 20px; box-sizing: border-box; }
+        .product-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.05); border: 1px solid #EAEAEA; display: flex; flex-direction: column; transition: transform 0.2s; }
+        .product-image { width: 100%; height: 260px; object-fit: cover; background-color: #EEE; }
+        .product-info { padding: 15px; display: flex; flex-direction: column; flex-grow: 1; text-align: left; }
+        .product-name { font-size: 15px; font-weight: 600; margin: 0 0 8px 0; height: 42px; overflow: hidden; }
+        .price-row { display: flex; align-items: baseline; gap: 8px; margin-bottom: 15px; }
+        .retail-price { font-size: 18px; font-weight: bold; }
+        .whatsapp-btn { background-color: #25D366; color: white; border: none; padding: 12px; font-size: 14px; font-weight: bold; border-radius: 8px; cursor: pointer; text-align: center; text-decoration: none; }
+        @media (max-width: 600px) { .products-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; padding: 0 10px; } .product-image { height: 170px; } }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">🛍️ Apni Market</div>
+        <div class="search-bar"><input type="text" placeholder="Search products..."></div>
+        <div style="font-weight: 500; font-size: 14px; color: var(--primary-color);">🇵🇰 Cash on Delivery</div>
+    </header>
+
+    <div class="banner">
+        <h2>Wholesale Rates Par Shopping</h2>
+        <p>Pure Pakistan mein Cash on Delivery ke sath!</p>
+    </div>
+
+    <div class="products-grid">
+        
+        <!-- Product 1 -->
+        <div class="product-card">
+            <!-- YAHAN IMAGE KA INTERNET LINK LAGAYEIN -->
+            <img class="product-image" src="https://unsplash.com" alt="Product">
+            <div class="product-info">
+                <h3 class="product-name">Branded Running Shoes Comfortable Sport Wear</h3>
+                <div class="price-row"><span class="retail-price">Rs. 2,450</span></div>
+                <button class="whatsapp-btn" onclick="orderOnWhatsApp('Branded Running Shoes', '2450')">🟢 Order on WhatsApp</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function orderOnWhatsApp(itemName, itemPrice) {
+            // !!! IMPORTANT: Is number ki jagah apna WhatsApp number likhein (92 se shuru karen)
+            var myWhatsAppNumber = "923001234567"; 
+            var textMessage = "Assalam-o-Alaikum! Mujhe aapki website se yeh item buy karna hai:\n\n" +
+                              "🛍️ *Product:* " + itemName + "\n" +
+                              "💰 *Price:* Rs. " + itemPrice + " (COD)\n\n" +
+                              "Kindly order confirm kar dein!";
+            var finalUrl = "https://wa.me" + myWhatsAppNumber + "?text=" + encodeURIComponent(textMessage);
+            window.open(finalUrl, '_blank');
+        }
+    </script>
+</body>
+</html>
+
+
